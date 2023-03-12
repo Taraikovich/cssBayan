@@ -1,15 +1,49 @@
-.wraper {
-    padding: auto;
-    background-color: rosybrown;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
 }
+
+p {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 1.2em;
+    margin: 3vh 0;
+    line-height: 2em;
+}
+
+.wraper {
+    display: flex;
+    justify-content: center;
+    /* background-color: rosybrown; */
+}
+
+p::before {
+    content: "+";
+    visibility: visible;
+    position: relative;
+    display: inline-block;
+    left: 95%;
+    transition: all .35s;
+}
+
+/* .accordion:hover p::before {
+    content: "\002B";
+    visibility: visible;
+    position: relative;
+    transition: all .35s;
+} */
 
 .accordion {
     display: flex;
+    /* background-color: blue; */
     flex-direction: column;
     flex-wrap: nowrap;
     overflow: hidden;
-    width: 100%;
+    width: 100vw;
     align-items: center;
+    justify-content: center;
 }
 
 input[type="radio"] {
@@ -17,16 +51,16 @@ input[type="radio"] {
 }
 
 .slide-content {
-    width: 50vw;
-    height: 5vh;
+    width: 100vw;
+    height: 10vh;
     overflow: hidden;
     transition: all .5s ease;
-    border: 2px solid black;
+    border-bottom: 2px solid black;
 }
 
-.slide-content:hover {
-    height: 60vh;
-}
+/* .slide-content:hover {
+    height: 80vh;
+} */
 
 .slide img {
     width: 100%;
@@ -34,7 +68,55 @@ input[type="radio"] {
     object-fit: scale-down;
 }
 
-input:checked ~ .slide-content {
-    background: red;
+input:checked~.slide-content {
+    /* background: red; */
     height: 60vh;
+}
+
+input:checked~.slide-content p::before {
+    content: "+";
+    /* display: inline-block; */
+    transform: rotate(45deg);
+}
+
+@media screen and (min-width: 600px) {
+    p {
+        font-size: 1.5em;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    p {
+        font-size: 2em;
+        margin-bottom: 0;
+        color: rgb(126, 51, 231);
+    }
+
+    .accordion {
+        width: 70vw;
+    }
+
+    .slide-content {
+        width: 70vw;
+    }
+
+    .slide-content:hover {
+        height: 60vh;
+        color: black;
+    }
+
+    p::before {
+        visibility: hidden;
+    }
+
+    .accordion:hover p::before {
+        content: "\002B";
+        visibility: visible;
+        position: relative;
+        transition: all .35s;
+    }
+
+    input:checked~.slide-content p {
+        color: black;
+    }
 }
