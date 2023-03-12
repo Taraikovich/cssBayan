@@ -16,28 +16,10 @@ p {
 .wraper {
     display: flex;
     justify-content: center;
-    /* background-color: rosybrown; */
 }
-
-p::before {
-    content: "+";
-    visibility: visible;
-    position: relative;
-    display: inline-block;
-    left: 95%;
-    transition: all .35s;
-}
-
-/* .accordion:hover p::before {
-    content: "\002B";
-    visibility: visible;
-    position: relative;
-    transition: all .35s;
-} */
 
 .accordion {
     display: flex;
-    /* background-color: blue; */
     flex-direction: column;
     flex-wrap: nowrap;
     overflow: hidden;
@@ -55,12 +37,13 @@ input[type="radio"] {
     height: 10vh;
     overflow: hidden;
     transition: all .5s ease;
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid #e0e0e0;
 }
 
-/* .slide-content:hover {
-    height: 80vh;
-} */
+.slide-content div {
+    display: flex;
+    justify-content: space-between;
+}
 
 .slide img {
     width: 100%;
@@ -69,15 +52,12 @@ input[type="radio"] {
 }
 
 input:checked~.slide-content {
-    /* background: red; */
     height: 60vh;
 }
 
-input:checked~.slide-content p::before {
-    content: "+";
-    /* display: inline-block; */
+input:checked~.slide-content div p:last-child {
     transform: rotate(45deg);
-}
+} 
 
 @media screen and (min-width: 600px) {
     p {
@@ -109,14 +89,15 @@ input:checked~.slide-content p::before {
         visibility: hidden;
     }
 
-    .accordion:hover p::before {
-        content: "\002B";
-        visibility: visible;
-        position: relative;
-        transition: all .35s;
-    }
-
     input:checked~.slide-content p {
         color: black;
+    }
+
+    .accordion:hover p {
+        color: black;
+    }
+
+    label {
+        cursor: pointer;
     }
 }
