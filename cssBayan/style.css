@@ -116,8 +116,13 @@ input:checked~.slide-content div p:last-child {
 
     .accordion:hover .slide-content div p:last-child {
         visibility: visible;
+    }
+
+    input:hover~.slide-content div p:last-child {
         transform: rotate(45deg);
     }
+
+    
 
     label {
         cursor: pointer;
