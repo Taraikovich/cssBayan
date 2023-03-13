@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+p {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 1.2em;
+    margin: 3vh 0;
+    line-height: 2em;
+    transition: all .5s ease;
+}
+
+.wraper {
+    display: flex;
+    justify-content: center;
+}
+
+.accordion {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+.slide-content {
+    width: 100vw;
+    height: 10vh;
+    overflow: hidden;
+    transition: all .5s ease;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.slide-content div {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 1%;
+}
+
+.slide-content img {
+    margin-top: 1em;
+    width: 100%;
+    height: 80%;
+    object-fit: scale-down;
+}
+
+input:checked~.slide-content {
+    height: 60vh;
+}
+
+input:checked~.slide-content img {
+    margin-top: 0;
+}
+
+.slide-content div p:last-child {
+    transition: all .5s ease;
+}
+
+input:checked~.slide-content div p:last-child {
+    transform: rotate(45deg);
+}
+
+@media screen and (min-width: 600px) {
+    p {
+        font-size: 1.5em;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    p {
+        font-size: 2em;
+        margin-bottom: 0;
+        color: rgb(126, 51, 231);
+    }
+
+    .accordion {
+        width: 70vw;
+    }
+
+    .slide-content {
+        width: 70vw;
+    }
+
+    .slide-content:hover {
+        height: 60vh;
+        color: black;
+    }
+
+    .slide-content:hover img {
+        margin-top: 0;
+    }
+
+    
+
+    .slide-content div p:last-child {
+        visibility: hidden;
+    }
+
+    input:checked~.slide-content p {
+        color: black;
+    }
+
+    .accordion:hover p {
+        color: black;
+    }
+
+    .accordion:hover .slide-content div p:last-child {
+        visibility: visible;
+    }
+
+    input:hover~.slide-content div p:last-child {
+        transform: rotate(45deg);
+    }
+
+    
+
+    label {
+        cursor: pointer;
+    }
+}
